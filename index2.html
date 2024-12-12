@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Net</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* الموجات المتحركة */
+    .wave-container {
+      position: relative;
+      height: 100px;
+      background: linear-gradient(to bottom, #4fc3f7, #81d4fa);
+      overflow: hidden;
+    }
+
+    .wave {
+      position: absolute;
+      width: 200%;
+      height: 100px;
+      background: url('https://svgshare.com/i/sfe.svg') repeat-x;
+      animation: wave-animation 4s infinite linear, wave-rise 2s infinite alternate ease-in-out;
+    }
+
+    @keyframes wave-animation {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes wave-rise {
+      from {
+        transform: translateY(5px);
+      }
+      to {
+        transform: translateY(-5px);
+      }
+    }
+
+    /* نص Home Net */
+    .wave-title {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 30px;
+      font-weight: bold;
+      color: #fff;
+      animation: title-animation 3s infinite ease-in-out;
+    }
+
+    @keyframes title-animation {
+      0% {
+        top: -50px;
+        left: 30%;
+        opacity: 0;
+      }
+      25% {
+        opacity: 1;
+        top: 20px;
+        left: 40%;
+      }
+      50% {
+        top: 50px;
+        left: 50%;
+      }
+      75% {
+        top: 20px;
+        left: 60%;
+      }
+      100% {
+        top: -50px;
+        left: 70%;
+        opacity: 0;
+      }
+    }
+
+    /* الدائرة */
+    .profile-circle {
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: url('https://k.top4top.io/p_3268ej2tk0.jpg') no-repeat center center / cover;
+      margin: 30px auto;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* الوصف */
+    .description-box {
+      background: #fff;
+      margin: 20px auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .description-box p {
+      margin: 0;
+      font-size: 18px;
+      color: #555;
+    }
+
+    /* زر CTA */
+    .cta-button {
+      display: inline-block;
+      margin: 20px auto;
+      padding: 15px 30px;
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      color: #fff;
+      text-decoration: none;
+      font-size: 20px;
+      border-radius: 50px;
+      box-shadow: 0 8px 20px rgba(255, 65, 108, 0.5);
+      animation: bounce 2s infinite;
+    }
+
+    .cta-button:hover {
+      background: linear-gradient(45deg, #ff4b2b, #ff416c);
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* مستطيلات السوشيال ميديا */
+    .social-rectangles {
+      margin: 30px auto;
+      width: 80%;
+      max-width: 600px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .social-rectangle {
+      position: relative;
+      flex: 1 1 30%;
+      margin: 10px;
+      padding: 15px;
+      background: #fff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      animation: rectangle-animation 1s ease-in-out infinite alternate;
+    }
+
+    .social-rectangle:hover {
+      transform: translateY(-10px);
+    }
+
+    .social-rectangle .icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #f4f4f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-rectangle img {
+      width: 25px;
+      height: 25px;
+    }
+
+    .social-rectangle span {
+      font-size: 18px;
+      color: #555;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="wave-container">
+    <div class="wave"></div>
+    <div class="wave-title">Home Net</div>
+  </div>
+
+  <div class="profile-circle"></div>
+
+  <h1>Home Net</h1>
+
+  <div class="description-box">
+    <p>موقع هوم نت يقدم لكم جميع خدمات الانترنت المجاني في جميع صورها.</p>
+  </div>
+
+  <a class="cta-button" href="index2.html">اضغط هنا للدخول للخدمات</a>
+
+  <div class="social-rectangles">
+    <a href="https://youtube.com" target="_blank" class="social-rectangle">
+      <div class="icon">
+        <img src="https://g.top4top.io/p_3268a9des2.jpg" alt="WhatsApp">
+      </div>
+      <span> جروب الواتساب </span>
+    </a>
+    <a href="https://youtube.com" target="_blank" class="social-rectangle">
+      <div class="icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+      </div>
+      <span>قناة التليجرام</span>
+    </a>
+    <a href="https://youtube.com" target="_blank" class="social-rectangle">
+      <div class="icon">
+        <img src="https://c.top4top.io/p_3268tp7uy0.jpg" alt="Facebook">
+      </div>
+      <span>صفحة الفيسبوك</span>
+    </a>
+      <a href="https://youtube.com" target="_blank" class="social-rectangle">
+      <div class="icon">
+        <img src="https://f.top4top.io/p_3268xgzlj0.png" alt="Facebook">
+      </div>
+      <span>دعم واتساب </span>
+    </a>
+  </div>
+</body>
+</html>
