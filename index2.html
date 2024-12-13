@@ -53,6 +53,7 @@
       font-weight: bold;
       color: #333;
       cursor: pointer;
+      position: relative; /* لجعل الدائرة داخل المستطيل */
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -69,39 +70,53 @@
     .sell { background: linear-gradient(135deg, #0074d9, #0056b3); color: #fff; }
     .register { background: linear-gradient(135deg, yellow, black); color: #fff; }
 
+    /* الدائرة الخاصة بالأيقونة */
+    .icon-circle {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background-size: cover; /* لتوسيع الصورة لتغطي الدائرة */
+      background-position: center; /* لضمان توسيط الصورة */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: absolute;
+      right: 10px; /* نقلها إلى الجهة اليمنى */
+      top: calc(50% - 45px); /* التوسيط عمودياً */
+    }
+
     /* حقوق الملكية */
     .footer {
-      position: fixed; /* تثبيت العنصر */
-      bottom: 0; /* وضعه في أسفل الصفحة */
+      position: fixed;
+      bottom: 0;
       width: 100%;
       padding: 15px 0;
       background: #333;
       color: #fff;
       font-size: 16px;
-      text-align: center; /* توسيط النص */
+      text-align: center;
     }
 
-
-    /* أنميشن التلاشي */
-    @keyframes fadeOut {
-      from {
-        opacity: 1;
-        transform: scale(1);
+    /* أنميشن التحريك */
+    @keyframes slideEffect {
+      0% {
+        transform: translateX(0);
       }
-      to {
-        opacity: 0;
-        transform: scale(1.5);
+      50% {
+        transform: translateX(10px);
+      }
+      100% {
+        transform: translateX(0);
       }
     }
 
-    .fade-out {
-      animation: fadeOut 0.5s forwards;
+    /* تطبيق الأنميشن */
+    .animated {
+      animation: slideEffect 0.5s forwards;
     }
   </style>
   <script>
     // التحكم في الانتقال مع الأنميشن
     function navigateWithAnimation(element, url) {
-      element.classList.add('fade-out');
+      element.classList.add('animated');
       setTimeout(() => {
         window.location.href = url;
       }, 500);
@@ -114,12 +129,30 @@
 
   <!-- الشبكة -->
   <div class="grid">
-    <div class="grid-item vodafone" onclick="navigateWithAnimation(this, 'index3.html')">فودافون</div>
-    <div class="grid-item orange" onclick="navigateWithAnimation(this, 'index4.html')">أورنج</div>
-    <div class="grid-item etisalat" onclick="navigateWithAnimation(this, 'index5.html')">اتصالات</div>
-    <div class="grid-item we" onclick="navigateWithAnimation(this, 'index6.html')">وي</div>
-    <div class="grid-item sell" onclick="navigateWithAnimation(this, 'index7.html')">بيع خطوط</div>
-    <div class="grid-item register" onclick="navigateWithAnimation(this, 'index8.html')">تسجيل خطوط</div>
+    <div class="grid-item vodafone" onclick="navigateWithAnimation(this, 'index3.html')">
+      <div class="icon-circle" style="background-image: url('https://e.top4top.io/p_3255bena16.png');"></div>
+      فودافون
+    </div>
+    <div class="grid-item orange" onclick="navigateWithAnimation(this, 'index4.html')">
+      <div class="icon-circle" style="background-image: url('https://d.top4top.io/p_32552iji35.png');"></div>
+      أورنج
+    </div>
+    <div class="grid-item etisalat" onclick="navigateWithAnimation(this, 'index5.html')">
+      <div class="icon-circle" style="background-image: url('https://b.top4top.io/p_3255lfbs33.png');"></div>
+      اتصالات
+    </div>
+    <div class="grid-item we" onclick="navigateWithAnimation(this, 'index6.html')">
+      <div class="icon-circle" style="background-image: url('https://c.top4top.io/p_32553l0tp4.png');"></div>
+      وي
+    </div>
+    <div class="grid-item sell" onclick="navigateWithAnimation(this, 'index7.html')">
+      <div class="icon-circle" style="background-image: url('https://b.top4top.io/p_3255n6kdb2.png');"></div>
+      بيع خطوط
+    </div>
+    <div class="grid-item register" onclick="navigateWithAnimation(this, 'index8.html')">
+      <div class="icon-circle" style="background-image: url('https://b.top4top.io/p_3255n6kdb2.png');"></div>
+      تسجيل خطوط
+    </div>
   </div>
 
   <!-- حقوق الملكية -->
