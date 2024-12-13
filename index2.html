@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Net</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #f4f4f4;
+      text-align: center;
+    }
+
+    /* الشريط العلوي */
+    .header {
+      width: 100%;
+      padding: 20px 0;
+      background: linear-gradient(90deg, #4fc3f7, #81d4fa);
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* الشبكة */
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px auto;
+      gap: 20px;
+      padding: 10px;
+    }
+
+    /* المربعات */
+    .grid-item {
+      width: 45%;
+      min-height: 150px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .grid-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ألوان المربعات */
+    .vodafone { background: linear-gradient(135deg, #e52d27, #b31217); color: #fff; }
+    .orange { background: linear-gradient(135deg, #ff7f00, #ff9100); color: #fff; }
+    .etisalat { background: linear-gradient(135deg, #34a853, #0d8b34); color: #fff; }
+    .we { background: linear-gradient(135deg, #7200ca, #b000d4); color: #fff; }
+    .sell { background: linear-gradient(135deg, #0074d9, #0056b3); color: #fff; }
+    .register { background: linear-gradient(135deg, yellow, black); color: #fff; }
+
+    /* حقوق الملكية */
+    .footer {
+      position: fixed; /* تثبيت العنصر */
+      bottom: 0; /* وضعه في أسفل الصفحة */
+      width: 100%;
+      padding: 15px 0;
+      background: #333;
+      color: #fff;
+      font-size: 16px;
+      text-align: center; /* توسيط النص */
+    }
+
+
+    /* أنميشن التلاشي */
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+        transform: scale(1);
+      }
+      to {
+        opacity: 0;
+        transform: scale(1.5);
+      }
+    }
+
+    .fade-out {
+      animation: fadeOut 0.5s forwards;
+    }
+  </style>
+  <script>
+    // التحكم في الانتقال مع الأنميشن
+    function navigateWithAnimation(element, url) {
+      element.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = url;
+      }, 500);
+    }
+  </script>
+</head>
+<body>
+  <!-- الشريط العلوي -->
+  <div class="header">Home Net</div>
+
+  <!-- الشبكة -->
+  <div class="grid">
+    <div class="grid-item vodafone" onclick="navigateWithAnimation(this, 'index3.html')">فودافون</div>
+    <div class="grid-item orange" onclick="navigateWithAnimation(this, 'index4.html')">أورنج</div>
+    <div class="grid-item etisalat" onclick="navigateWithAnimation(this, 'index5.html')">اتصالات</div>
+    <div class="grid-item we" onclick="navigateWithAnimation(this, 'index6.html')">وي</div>
+    <div class="grid-item sell" onclick="navigateWithAnimation(this, 'index7.html')">بيع خطوط</div>
+    <div class="grid-item register" onclick="navigateWithAnimation(this, 'index8.html')">تسجيل خطوط</div>
+  </div>
+
+  <!-- حقوق الملكية -->
+  <div class="footer">جميع الحقوق محفوظة أحمد سامي 2025 &copy; Home Net</div>
+</body>
+</html>
