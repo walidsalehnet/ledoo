@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Net</title>
+  <style>
+    /* إعدادات عامة */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #f4f4f4;
+      text-align: center;
+      padding-top: 40px;
+    }
+
+    /* الشريط العلوي */
+    .header {
+      background-color: #ff0000;
+      padding: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    /* الحاوية الرئيسية */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
+    }
+
+    /* قسم شركات الاتصالات */
+    .company-section {
+      margin-bottom: 40px;
+    }
+
+    .company-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* المربعات الخاصة بالخطوط */
+    .line-box {
+      display: inline-block;
+      width: 200px;
+      background: #fff;
+      margin: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .line-box:hover {
+      transform: scale(1.05);
+    }
+
+    .line-box img {
+      width: 80%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .line-box h4 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .line-box p {
+      font-size: 16px;
+      margin-bottom: 15px;
+      color: #777;
+    }
+
+    .line-box button {
+      background-color: #ff0000;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .line-box button:hover {
+      background-color: #cc0000;
+    }
+  </style>
+</head>
+<body>
+  <!-- الشريط العلوي -->
+  <div class="header">Home Net</div>
+
+  <!-- المحتوى الرئيسي -->
+  <div class="container" id="lines-container">
+    <!-- سيتم إضافة الخطوط تلقائيًا هنا -->
+  </div>
+
+  <script>
+    // تحديث المتجر بخطوط جديدة
+    const linesContainer = document.getElementById('lines-container');
+
+    function addLine(image, number, price) {
+      const lineBox = document.createElement('div');
+      lineBox.className = 'line-box';
+      lineBox.innerHTML = `
+        <img src="${image}" alt="خط">
+        <h4>رقم الخط: ${number}</h4>
+        <p>السعر: ${price} جنيه</p>
+        <button onclick="location.href='index2.html'">شراء</button>
+      `;
+      linesContainer.appendChild(lineBox);
+    }
+  </script>
+</body>
+</html>

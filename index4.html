@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Net</title>
+  <style>
+    /* إعدادات عامة */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(90deg, #ff7f00, #ffffff);
+      text-align: center;
+      color: #fff;
+    }
+
+    /* عنوان الصفحة */
+    .header {
+      background-color: #ff7f00;
+      padding: 20px 0;
+      font-size: 28px;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      color: #fff;
+    }
+
+    /* الحاوية */
+    .container {
+      margin: 20px auto;
+      padding: 10px;
+      max-width: 400px;
+    }
+
+    /* المستطيلات */
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 15px auto;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 1.2s ease forwards;
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1);
+    }
+
+    .card img {
+      width: 160px; /* تكبير اللوجو */
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    /* زر الدخول */
+    .card button {
+      background: #ff7f00;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .card button:hover {
+      background: #e66c00;
+      transform: scale(1.1);
+    }
+
+    /* أنميشن */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  <script>
+    function goToFlexPage() {
+      window.location.href = 'index13.html';
+    }
+
+    function goToRedPage() {
+      window.location.href = 'index14.html';
+    }
+    function goTocallPage() {
+      window.location.href = 'index15.html';
+    }
+  </script>
+</head>
+<body>
+  <!-- الشريط العلوي -->
+  <div class="header">Home Net</div>
+
+  <!-- المحتوى -->
+  <div class="container">
+    <!-- المستطيل الأول -->
+    <div class="card">
+      <img src="https://f.top4top.io/p_3255tbkd51.jpg" alt="Orange Flex Logo">
+      <h3>تفعيل باقات انترنت ومكالمات</h3>
+      <p>أفضل العروض والباقة المناسبة لك بكل سهولة.</p>
+      <button onclick="goToFlexPage()">دخول</button>
+    </div>
+
+    <!-- المستطيل الثاني -->
+    <div class="card">
+      <img src="https://k.top4top.io/p_32552eexc1.jpg" alt="Orange Red Logo">
+      <h3>تفعيل باقات نت فقط</h3>
+      <p>استمتع بمزايا إضافية مع باقات النت المميزة.</p>
+      <button onclick="goToRedPage()">دخول</button>
+    </div>
+       <!-- المستطيل الثالث -->
+    <div class="card">
+      <img src="https://e.top4top.io/p_32553hbyg1.jpg" alt="Orange Red Logo">
+      <h3>تفعيل باقات مكالمات فقط</h3>
+      <p>استمتع بمزايا إضافية مع باقات المكالمات المميزة.</p>
+      <button onclick="goTocallPage()">دخول</button>
+    </div>
+  </div>
+</body>
+</html>
