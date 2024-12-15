@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Net</title>
+  <title>Home Net - متجر الخطوط</title>
   <style>
     /* إعدادات عامة */
     * {
@@ -14,114 +14,292 @@
 
     body {
       font-family: 'Cairo', sans-serif;
-      background: #f4f4f4;
+      background: #f9f9f9;
       text-align: center;
       padding-top: 40px;
     }
 
     /* الشريط العلوي */
     .header {
-      background-color: #ff0000;
+      background: #333;
+      color: white;
       padding: 20px;
       font-size: 28px;
       font-weight: bold;
-      color: #fff;
     }
 
-    /* الحاوية الرئيسية */
-    .container {
-      width: 90%;
-      max-width: 1200px;
+    /* الحاوية */
+    .section {
       margin: 20px auto;
+      padding: 20px;
+      width: 50%;
+      max-width: 1200px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    /* قسم شركات الاتصالات */
-    .company-section {
-      margin-bottom: 40px;
-    }
-
-    .company-title {
+    .section h2 {
       font-size: 24px;
       margin-bottom: 20px;
-      font-weight: bold;
       color: #333;
     }
 
-    /* المربعات الخاصة بالخطوط */
-    .line-box {
-      display: inline-block;
-      width: 200px;
-      background: #fff;
-      margin: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* الشبكة */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+ .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    /* المربعات */
+    .card {
+      background: black;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       text-align: center;
-      border-radius: 10px;
       transition: transform 0.3s ease;
     }
 
-    .line-box:hover {
-      transform: scale(1.05);
-    }
-
-    .line-box img {
-      width: 80%;
-      height: auto;
+    .card img {
+      width: 100px;
+      height: 100px;
       margin-bottom: 10px;
     }
 
-    .line-box h4 {
+    .card h4 {
       font-size: 18px;
-      margin-bottom: 10px;
-      color: #333;
+      margin-bottom: 8px;
+      color: #555;
     }
 
-    .line-box p {
-      font-size: 16px;
+    .card p {
       margin-bottom: 15px;
       color: #777;
     }
 
-    .line-box button {
-      background-color: #ff0000;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 10px;
-      cursor: pointer;
+    .card .price {
+      font-size: 16px;
       font-weight: bold;
-      transition: background 0.3s ease;
+      margin-bottom: 10px;
     }
 
-    .line-box button:hover {
-      background-color: #cc0000;
+    .card button {
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      color: white;
+    }
+
+    /* ألوان الشركات */
+    .vodafone .card {
+      background: #fff;
+      border: 2px solid #ff0000;
+    }
+
+    .vodafone .card .price,
+    .vodafone .card button {
+      background: #ff0000;
+    }
+
+    .orange .card {
+      background: #fff;
+      border: 2px solid #ff6f00;
+    }
+
+    .orange .card .price,
+    .orange .card button {
+      background: #ff6f00;
+    }
+
+    .etisalat .card {
+      background: #fff;
+      border: 2px solid #4caf50;
+    }
+
+    .etisalat .card .price,
+    .etisalat .card button {
+      background: #4caf50;
+    }
+
+    .we .card {
+      background: #fff;
+      border: 2px solid #6a1b9a;
+    }
+
+    .we .card .price,
+    .we .card button {
+      background: #6a1b9a;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+    /* النافذة المنبثقة */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      width: 80%;
+      max-width: 400px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      z-index: 1000;
+      text-align: center;
+    }
+
+    .popup h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .popup p {
+      margin: 10px 0;
+      color: #555;
+    }
+
+    .popup button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .popup .pay-btn {
+      background: #4caf50;
+      color: white;
+    }
+
+    .popup .close-btn {
+      background: #f44336;
+      color: white;
+    }
+
+    .popup .pay-btn:hover {
+      background: #388e3c;
+    }
+
+    .popup .close-btn:hover {
+      background: #d32f2f;
+    }
+
+    /* الخلفية الداكنة */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
     }
   </style>
 </head>
 <body>
   <!-- الشريط العلوي -->
-  <div class="header">Home Net</div>
+  <div class="header">Home Net </div>
 
-  <!-- المحتوى الرئيسي -->
-  <div class="container" id="lines-container">
-    <!-- سيتم إضافة الخطوط تلقائيًا هنا -->
+  <!-- قسم Vodafone -->
+  <div class="section vodafone">
+    <h2>Vodafone</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://e.top4top.io/p_3255d1itb1.png" " alt="Vodafone Line">
+        <h4>رقم: 01012345678</h4>
+        <p class="price">السعر: 50 جنيه</p>
+          <button onclick="showPopup('01012345678', '50 جنيه')">شراء</button>
+      </div>
+       </div>
+        </div>
+          <div class="section vodafone">
+    <h2>Vodafone</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://e.top4top.io/p_3255d1itb1.png" " alt="Vodafone Line">
+        <h4>رقم: 01012345678</h4>
+        <p class="price">السعر: 50 جنيه</p>
+          <button onclick="showPopup('01012345678', '50 جنيه')">شراء</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- قسم Orange -->
+  <div class="section orange">
+    <h2>Orange</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://k.top4top.io/p_3271ir0wc0.jpg" alt="Orange Line">
+        <h4>رقم: 01212345678</h4>
+        <p class="price">السعر: 65 جنيه</p>
+              <button onclick="showPopup('01212345678', '65 جنيه')">شراء</button>
+      </div>
+       </div>
+        </div>
+
+  <!-- قسم Etisalat -->
+  <div class="section etisalat">
+    <h2>Etisalat</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://k.top4top.io/p_32552eexc1.jpg" alt="Etisalat Line">
+        <h4>رقم: 01112345678</h4>
+        <p class="price">السعر: 55 جنيه</p>
+        <button onclick="showPopup('01012345678', '50 جنيه')">شراء</button>
+      </div>
+       </div> 
+       </div>
+  <!-- قسم WE -->
+  <div class="section we">
+    <h2>WE</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://e.top4top.io/p_3255n6xwo1.png" alt="WE Line">
+        <h4>رقم: 01512345678</h4>
+        <p class="price">السعر: 60 جنيه</p>
+        <button onclick="showPopup('01012345678', '50 جنيه')">شراء</button>
+      </div>
+       </div>
+        </div>
+  <!-- النافذة المنبثقة -->
+  <div class="overlay" id="overlay" onclick="hidePopup()"></div>
+  <div class="popup" id="popup">
+    <h3>فاتورة الشراء</h3>
+    <p id="line-number"></p>
+    <p id="line-price"></p>
+    <button class="pay-btn" onclick="window.location.href='index000.html'">دفع</button>
+    <button class="close-btn" onclick="hidePopup()">إغلاق</button>
   </div>
 
   <script>
-    // تحديث المتجر بخطوط جديدة
-    const linesContainer = document.getElementById('lines-container');
+    function showPopup(number, price) {
+      document.getElementById('line-number').textContent = `الرقم: ${number}`;
+      document.getElementById('line-price').textContent = `السعر: ${price}`;
+      document.getElementById('popup').style.display = 'block';
+      document.getElementById('overlay').style.display = 'block';
+    }
 
-    function addLine(image, number, price) {
-      const lineBox = document.createElement('div');
-      lineBox.className = 'line-box';
-      lineBox.innerHTML = `
-        <img src="${image}" alt="خط">
-        <h4>رقم الخط: ${number}</h4>
-        <p>السعر: ${price} جنيه</p>
-        <button onclick="location.href='index2.html'">شراء</button>
-      `;
-      linesContainer.appendChild(lineBox);
+    function hidePopup() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
     }
   </script>
+</body>
 </body>
 </html>
