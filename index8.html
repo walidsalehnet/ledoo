@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Net</title>
+  <style>
+    /* إعدادات عامة */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff5733, #4caf50);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* الشريط العلوي */
+    .header {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* المستطيل */
+    .content-box {
+      background: white;
+      color: black;
+      border-radius: 12px;
+      padding: 30px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+      animation: pulse 2s infinite;
+      overflow: hidden;
+    }
+
+    /* تأثيرات الألوان */
+    .content-box::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(60deg, #ff5733, #4caf50, #ffc107, #673ab7);
+      z-index: -1;
+      filter: blur(50px);
+      animation: rotate 6s linear infinite;
+    }
+
+    /* النص داخل المستطيل */
+    .content-box p {
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: center;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    /* زر التواصل */
+    .contact-btn {
+      display: block;
+      width: 200px;
+      margin: 20px auto 0;
+      padding: 15px;
+      background: #4caf50;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .contact-btn:hover {
+      background: #388e3c;
+      transform: scale(1.1);
+    }
+
+    /* أنيميشن */
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      50% {
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- الشريط العلوي -->
+  <div class="header">Home Net</div>
+
+  <!-- المستطيل -->
+  <div class="content-box">
+    <p>جـمـيـع الخدمات المــتــاح حــالــيــاً ●</p>
+    <p>• تسجيل فودافون موجود</p>
+    <p>• تسجيل فودافون ضايع</p>
+    <p>• خطوط فودافون جديده علي نظام شركات</p>
+    <p>• تسجيل اورانج موجود عادي</p>
+    <p>• تسجيل اورانج موجود مميز</p>
+    <p>• تسجيل اورانج ضايع عادي</p>
+    <p>• تسجيل اورانج ضايع مميز</p>
+    <p>• خطوط اورانج جديده</p>
+    <p>• اعادة تعاقد لو خطك اتسحب منك</p>
+    <p>• تغير من فاتوره لكارت</p>
+    <p>● سحب بيانات اي رقم كاملة ●</p>
+    <p>• سحب بيانات فودافون</p>
+    <p>• سحب بيانات اتصالات</p>
+    <p>• سحب بيانات اورانج</p>
+    <p>• سحب بيانات وي (صورة بطاقه)</p>
+    <p>↯ البيانات بتكون كالتالي ↯</p>
+    <p>الأسم - الرقم القومي - العنوان - تاريخ الميلاد</p>
+    <p>● متاح بحث بـ الرقم القومي في الشركات ⚡️</p>
+    <p>البحث في الشبكه الواحده</p>
+    <p>بحث بـ الرقم القومي يعني اجبلك الأرقام المسجلة بـ اسمة بعد سحب البيانات او لو معاك الرقم القومي.</p>
+    <a class="contact-btn" href="https://wsend.co/201070515308" target="_blank">للتواصل</a>
+  </div>
+</body>
+</html>
