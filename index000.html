@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Net - صفحة الدفع</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #f9f9f9;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* الشريط العلوي */
+    .header {
+      width: 100%;
+      padding: 20px 0;
+      background: linear-gradient(90deg, #4fc3f7, #81d4fa);
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* المحتوى */
+    .container {
+      margin: 40px auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 400px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .info-box {
+      background: #f1f8e9;
+      border: 2px solid #4caf50;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-size: 16px;
+      text-align: right;
+    }
+
+    input, button, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #4caf50;
+      outline: none;
+    }
+
+    button {
+      background: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #388e3c;
+    }
+  </style>
+</head>
+<body>
+  <!-- الشريط العلوي -->
+  <div class="header">Home Net</div>
+
+  <!-- المحتوى -->
+  <div class="container">
+    <h2>صفحة الدفع</h2>
+    <div class="info-box">
+      <p>ارسل المبلغ إلى هذا الرقم:</p>
+      <p style="font-weight: bold; color: #4caf50;">00000000000</p>
+    </div>
+
+    <form id="paymentForm">
+      <label for="phone-number">رقم الهاتف الذي تريد شراءه:</label>
+      <input type="text" id="phone-number" name="phone-number" placeholder="أدخل الرقم" required>
+
+      <label for="whatsapp-number">رقم الواتساب الخاص بك:</label>
+      <input type="text" id="whatsapp-number" name="whatsapp-number" placeholder="أدخل رقم الواتساب" required>
+
+      <label for="screenshot">قم برفع صورة التحويل:</label>
+      <input type="file" id="screenshot" name="screenshot" accept="image/*" required>
+
+      <button type="button" onclick="sendToTelegram()">شراء</button>
+    </form>
+  </div>
+
+  <script>
+    async function sendToTelegram() {
+      const botToken = "7247841435:AAEAaVzlKneCyVTNyCYjNkotUbcS1FeEsos";
+      const chatId = "7122151638";
+
+      // جمع البيانات من النموذج
+      const phoneNumber = document.getElementById("phone-number").value;
+      const whatsappNumber = document.getElementById("whatsapp-number").value;
+      const screenshotInput = document.getElementById("screenshot");
+      const file = screenshotInput.files[0];
+
+      if (!phoneNumber || !whatsappNumber || !file) {
+        alert("يرجى إدخال جميع البيانات ورفع صورة التحويل.");
+        return;
+      }
+
+      // إرسال البيانات النصية
+      const message = `طلب جديد:\n\nرقم الهاتف: ${phoneNumber}\nرقم الواتساب: ${whatsappNumber}`;
+      await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message,
+        }),
+      });
+
+      // إرسال الصورة
+      const formData = new FormData();
+      formData.append("chat_id", chatId);
+      formData.append("photo", file);
+
+      await fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, {
+        method: "POST",
+        body: formData,
+      });
+
+      alert("تم إرسال طلبك بنجاح!");
+    }
+  </script>
+</body>
+</html>
