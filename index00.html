@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Net</title>
+  <style>
+    /* إعدادات عامة */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(90deg, #6a0dad, #ffffff);
+      text-align: center;
+      color: #333;
+      padding: 20px;
+    }
+
+    /* الشريط العلوي */
+    .header {
+      background-color: #6a0dad;
+      color: #fff;
+      padding: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      animation: slideIn 1s ease-in-out;
+    }
+
+    /* المستطيل المزغرف */
+    .card {
+      background: #ffffff;
+      color: #6a0dad;
+      border: 2px solid #6a0dad;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1.5s ease-in-out;
+      position: relative;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .card p {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    /* تأثير الأنميشن */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- الشريط العلوي -->
+  <div class="header">Home Net</div>
+
+  <!-- المستطيل الأول -->
+  <div class="card">
+    <h3>السلام عليكم،</h3>
+    <p>
+      مشتركي وي جولد في شوية ملاحظات...<br><br>
+      *الدقائق بتشتغل نت* بمجرد انتهاء وحدات الإنترنت الأساسية... يعني لو خلصت وحدات النت السيستم هيسحب من الدقائق تلقائي عشان اللي بيسألني الدقائق راحت فين...<br><br>
+      تاني حاجة *لازم تشحن خطك بقيمة ضريبة الدمغة 67 قرش شهريًا* عشان ما يحصلش أي مشاكل في خطك أو الشركة تسحبه... فاشحن خطك مثلا ب ٥ ج رصيد صافي كل ٣ شهور على الأقل...
+    </p>
+  </div>
+
+  <!-- المستطيل الثاني -->
+  <div class="card">
+    <h3>بالنسبة *لمعرفة الاستهلاك والباقة*</h3>
+    <p>
+      دي الطريقة:<br><br>
+      افتح أبلكيشن ماي وي..<br>
+      من فوق خالص.. دوس على علامة البحث وبعدها اختار إستهلاك أو Usage<br><br>
+      هيطلعلك مجموعة العائلة Group Usage تقدر تشوف إستهلاكك منه.<br><br>
+      *عشان مش بيجي رساله بالباقه لازم تشوفها من البرنامج* ⚠️
+    </p>
+  </div>
+</body>
+</html>
