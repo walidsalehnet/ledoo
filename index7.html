@@ -299,6 +299,28 @@
       document.getElementById('popup').style.display = 'none';
       document.getElementById('overlay').style.display = 'none';
     }
+    document.addEventListener('DOMContentLoaded', () => {
+  const products = JSON.parse(localStorage.getItem('products')) || [];
+  const categories = {
+    vodafone: document.querySelector('.section.vodafone .grid'),
+    orange: document.querySelector('.section.orange .grid'),
+    etisalat: document.querySelector('.section.etisalat .grid'),
+    we: document.querySelector('.section.we .grid')
+  };
+
+  products.forEach(product => {
+    const card = `
+      <div class="card">
+        <img src="https://via.placeholder.com/100" alt="${product.category}">
+        <h4>رقم: ${product.number}</h4>
+        <p class="price">السعر: ${product.price}</p>
+        <button onclick="showPopup('${product.number}', '${product.price}')">شراء</button>
+      </div>
+    `;
+    categories[product.category].innerHTML += card;
+  });
+});
+
   </script>
 </body>
 </body>
