@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم - متجر الخطوط</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      width: 50%;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    button {
+      background: #4caf50;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #388e3c;
+    }
+
+    .products-list {
+      margin-top: 20px;
+    }
+
+    .product-item {
+      display: flex;
+      justify-content: space-between;
+      background: #f1f1f1;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+    }
+
+    .product-item button {
+      background: #f44336;
+      color: white;
+    }
+
+    .product-item button:hover {
+      background: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>إضافة منتج جديد</h2>
+    <input id="productNumber" type="text" placeholder="رقم المنتج" required>
+    <input id="productPrice" type="text" placeholder="السعر" required>
+    <select id="productCategory">
+      <option value="vodafone">Vodafone</option>
+      <option value="orange">Orange</option>
+      <option value="etisalat">Etisalat</option>
+      <option value="we">WE</option>
+    </select>
+    <button onclick="addProduct()">إضافة المنتج</button>
+
+    <h2>قائمة المنتجات</h2>
+    <div class="products-list" id="productsList"></div>
+  </div>
+
+  <script>
+    let products = JSON.parse(localStorage.getItem('products')) || [];
+
+    function addProduct() {
+      const number = document.getElementById('productNumber').value;
+      const price = document.getElementById('productPrice').value;
+      const category = document.getElementById('productCategory').value;
+
+      if (number && price) {
+        products.push({ number, price, category });
+        localStorage.setItem('products', JSON.stringify(products));
+        displayProducts();
+        document.getElementById('productNumber').value = '';
+        document.getElementById('productPrice').value = '';
+      } else {
+        alert('يرجى إدخال جميع البيانات');
+      }
+    }
+
+    function deleteProduct(index) {
+      products.splice(index, 1);
+      localStorage.setItem('products', JSON.stringify(products));
+      displayProducts();
+    }
+
+    function displayProducts() {
+      const list = document.getElementById('productsList');
+      list.innerHTML = '';
+      products.forEach((product, index) => {
+        list.innerHTML += `
+          <div class="product-item">
+            <span>${product.number} - ${product.price} - ${product.category}</span>
+            <button onclick="deleteProduct(${index})">حذف</button>
+          </div>
+        `;
+      });
+    }
+
+    displayProducts();
+  </script>
+</body>
+</html>
