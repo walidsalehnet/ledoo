@@ -82,40 +82,7 @@
       text-align: center;
     }
 
-    /* الدوائر */
-    .floating-buttons {
-      position: fixed;
-      bottom: 70px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .floating-buttons .circle {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: #25d366;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .floating-buttons .circle:hover {
-      transform: scale(1.1);
-    }
-
-    .floating-buttons .circle img {
-      width: 50%;
-    }
-
-    .floating-buttons .telegram {
-      background: #0088cc;
-    }
+  
   </style>
   <script>
     function openPage(url) {
@@ -155,15 +122,6 @@
     </div>
   </div>
 
-  <!-- الدوائر -->
-  <div class="floating-buttons">
-    <div class="circle whatsapp" onclick="openPage('https://www.youtube.com')">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="واتساب">
-    </div>
-    <div class="circle telegram" onclick="openPage('https://www.youtube.com')">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="تليجرام">
-    </div>
-  </div>
 
   <!-- حقوق الملكية -->
   <div class="footer">جميع الحقوق محفوظة أحمد سامي 2025 &copy;</div>
