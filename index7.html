@@ -309,17 +309,17 @@
   };
 
   products.forEach(product => {
-    const card = `
-      <div class="card">
-        <img src="https://via.placeholder.com/100" alt="${product.category}">
-        <h4>رقم: ${product.number}</h4>
-        <p class="price">السعر: ${product.price}</p>
-        <button onclick="showPopup('${product.number}', '${product.price}')">شراء</button>
-      </div>
-    `;
-    categories[product.category].innerHTML += card;
-  });
+  const card = `
+    <div class="card">
+      <img src="${product.image}" alt="${product.category}">
+      <h4>رقم: ${product.number}</h4>
+      <p class="price">السعر: ${product.price}</p>
+      <button onclick="showPopup('${product.number}', '${product.price}')">شراء</button>
+    </div>
+  `;
+  categories[product.category].innerHTML += card;
 });
+
 
   </script>
 </body>
