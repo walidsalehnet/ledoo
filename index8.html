@@ -12,17 +12,12 @@
       font-family: 'Arial', sans-serif;
       background: linear-gradient(135deg, #ff5733, #4caf50);
       color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       min-height: 100vh;
-      overflow: hidden;
+      overflow-x: hidden; /* لمنع التمرير الأفقي */
     }
 
     /* الشريط العلوي */
     .header {
-      position: absolute;
-      top: 0;
       width: 100%;
       padding: 20px 0;
       text-align: center;
@@ -30,6 +25,9 @@
       font-weight: bold;
       background: rgba(0, 0, 0, 0.5);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 0; /* لإبقاء العنوان ثابتًا أثناء التمرير */
+      z-index: 1000;
     }
 
     /* المستطيل */
@@ -41,7 +39,8 @@
       width: 90%;
       max-width: 600px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      position: relative;
+      margin: 20px auto; /* لإعطاء مساحة أعلى وأسفل */
+      text-align: center;
       animation: pulse 2s infinite;
       overflow: hidden;
     }
@@ -91,6 +90,36 @@
       transform: scale(1.1);
     }
 
+    /* زر عرض الخدمات */
+    .toggle-btn {
+      display: block;
+      width: 200px;
+      margin: 20px auto;
+      padding: 15px;
+      background: #ff5733;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, background 0.3s;
+      cursor: pointer;
+    }
+
+    .toggle-btn:hover {
+      background: #e64a19;
+      transform: scale(1.1);
+    }
+
+    /* الخدمات */
+    .services {
+      display: none;
+      text-align: center;
+      margin-top: 20px; /* مسافة بين النصوص */
+    }
+
     /* أنيميشن */
     @keyframes pulse {
       0%, 100% {
@@ -117,28 +146,47 @@
 
   <!-- المستطيل -->
   <div class="content-box">
-    <p>جـمـيـع الخدمات المــتــاح حــالــيــاً ●</p>
-    <p>• تسجيل فودافون موجود</p>
-    <p>• تسجيل فودافون ضايع</p>
-    <p>• خطوط فودافون جديده علي نظام شركات</p>
-    <p>• تسجيل اورانج موجود عادي</p>
-    <p>• تسجيل اورانج موجود مميز</p>
-    <p>• تسجيل اورانج ضايع عادي</p>
-    <p>• تسجيل اورانج ضايع مميز</p>
-    <p>• خطوط اورانج جديده</p>
-    <p>• اعادة تعاقد لو خطك اتسحب منك</p>
-    <p>• تغير من فاتوره لكارت</p>
-    <p>● سحب بيانات اي رقم كاملة ●</p>
-    <p>• سحب بيانات فودافون</p>
-    <p>• سحب بيانات اتصالات</p>
-    <p>• سحب بيانات اورانج</p>
-    <p>• سحب بيانات وي (صورة بطاقه)</p>
-    <p>↯ البيانات بتكون كالتالي ↯</p>
-    <p>الأسم - الرقم القومي - العنوان - تاريخ الميلاد</p>
-    <p>● متاح بحث بـ الرقم القومي في الشركات ⚡️</p>
-    <p>البحث في الشبكه الواحده</p>
-    <p>بحث بـ الرقم القومي يعني اجبلك الأرقام المسجلة بـ اسمة بعد سحب البيانات او لو معاك الرقم القومي.</p>
+    <!-- زر عرض الخدمات -->
+    <div class="toggle-btn" onclick="toggleServices()">اضغط هنا لعرض الخدمات</div>
+
+    <!-- الخدمات -->
+    <div class="services" id="services">
+      <p>• تسجيل فودافون موجود</p>
+      <p>• تسجيل فودافون ضايع</p>
+      <p>• خطوط فودافون جديده علي نظام شركات</p>
+      <p>• تسجيل اورانج موجود عادي</p>
+      <p>• تسجيل اورانج موجود مميز</p>
+      <p>• تسجيل اورانج ضايع عادي</p>
+      <p>• تسجيل اورانج ضايع مميز</p>
+      <p>• خطوط اورانج جديده</p>
+      <p>• اعادة تعاقد لو خطك اتسحب منك</p>
+      <p>• تغير من فاتوره لكارت</p>
+      <p>● سحب بيانات اي رقم كاملة ●</p>
+      <p>• سحب بيانات فودافون</p>
+      <p>• سحب بيانات اتصالات</p>
+      <p>• سحب بيانات اورانج</p>
+      <p>• سحب بيانات وي (صورة بطاقه)</p>
+      <p>↯ البيانات بتكون كالتالي ↯</p>
+      <p>الأسم - الرقم القومي - العنوان - تاريخ الميلاد</p>
+      <p>● متاح بحث بـ الرقم القومي في الشركات ⚡️</p>
+      <p>البحث في الشبكه الواحده</p>
+      <p>بحث بـ الرقم القومي يعني اجبلك الأرقام المسجلة بـ اسمة بعد سحب البيانات او لو معاك الرقم القومي.</p>
+    </div>
+
+    <!-- زر التواصل -->
     <a class="contact-btn" href="https://wsend.co/201070515308" target="_blank">للتواصل</a>
   </div>
+
+  <script>
+    // وظيفة إظهار وإخفاء الخدمات
+    function toggleServices() {
+      const services = document.getElementById('services');
+      if (services.style.display === 'none' || services.style.display === '') {
+        services.style.display = 'block';
+      } else {
+        services.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
