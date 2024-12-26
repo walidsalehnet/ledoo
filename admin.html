@@ -72,6 +72,7 @@
     <h2>إضافة منتج جديد</h2>
     <input id="productNumber" type="text" placeholder="رقم المنتج" required>
     <input id="productPrice" type="text" placeholder="السعر" required>
+    <input id="productImage" type="text" placeholder="رابط الصورة" required>
     <select id="productCategory">
       <option value="vodafone">Vodafone</option>
       <option value="orange">Orange</option>
@@ -90,14 +91,16 @@
     function addProduct() {
       const number = document.getElementById('productNumber').value;
       const price = document.getElementById('productPrice').value;
+      const image = document.getElementById('productImage').value;
       const category = document.getElementById('productCategory').value;
 
-      if (number && price) {
-        products.push({ number, price, category });
+      if (number && price && image) {
+        products.push({ number, price, image, category });
         localStorage.setItem('products', JSON.stringify(products));
         displayProducts();
         document.getElementById('productNumber').value = '';
         document.getElementById('productPrice').value = '';
+        document.getElementById('productImage').value = '';
       } else {
         alert('يرجى إدخال جميع البيانات');
       }
@@ -116,6 +119,7 @@
         list.innerHTML += `
           <div class="product-item">
             <span>${product.number} - ${product.price} - ${product.category}</span>
+            <img src="${product.image}" alt="Product Image" style="width: 50px; height: 50px;">
             <button onclick="deleteProduct(${index})">حذف</button>
           </div>
         `;
