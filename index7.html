@@ -51,11 +51,6 @@
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 20px;
     }
- .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-    }
 
     /* المربعات */
     .card {
@@ -99,6 +94,10 @@
       color: white;
     }
 
+    .card:hover {
+      transform: scale(1.05);
+    }
+
     /* ألوان الشركات */
     .vodafone .card {
       background: #fff;
@@ -140,9 +139,6 @@
       background: #6a1b9a;
     }
 
-    .card:hover {
-      transform: scale(1.05);
-    }
     /* النافذة المنبثقة */
     .popup {
       display: none;
@@ -213,81 +209,62 @@
 </head>
 <body>
   <!-- الشريط العلوي -->
-  <div class="header">Home Net </div>
+  <div class="header">Home Net</div>
 
-  <!-- قسم Vodafone -->
+  <!-- أقسام الشركات -->
   <div class="section vodafone">
     <h2>Vodafone</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://e.top4top.io/p_3255d1itb1.png" " alt="Vodafone Line">
-        <h4>رقم: 01012345678</h4>
-        <p class="price">السعر: 50 جنيه</p>
-          <button onclick="showPopup('01012345678', '50 جنيه')">شراء</button>
-      </div>
-       </div>
-        </div>
-          <div class="section vodafone">
-    <h2>Vodafone</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://e.top4top.io/p_3255d1itb1.png" " alt="Vodafone Line">
-        <h4>رقم: 01012345678</h4>
-        <p class="price">السعر: 50 جنيه</p>
-          <button onclick="showPopup('01012345678', '50 جنيه')">شراء</button>
-      </div>
-    </div>
+    <div class="grid"></div>
   </div>
 
-
-  <!-- قسم Orange -->
   <div class="section orange">
     <h2>Orange</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://k.top4top.io/p_3271ir0wc0.jpg" alt="Orange Line">
-        <h4>رقم: 01212345678</h4>
-        <p class="price">السعر: 65 جنيه</p>
-              <button onclick="showPopup('01212345678', '65 جنيه')">شراء</button>
-      </div>
-       </div>
-        </div>
+    <div class="grid"></div>
+  </div>
 
-  <!-- قسم Etisalat -->
   <div class="section etisalat">
     <h2>Etisalat</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://k.top4top.io/p_32552eexc1.jpg" alt="Etisalat Line">
-        <h4>رقم: 01112345678</h4>
-        <p class="price">السعر: 55 جنيه</p>
-        <button onclick="showPopup('01012345678', '50 جنيه')">شراء</button>
-      </div>
-       </div> 
-       </div>
-  <!-- قسم WE -->
+    <div class="grid"></div>
+  </div>
+
   <div class="section we">
     <h2>WE</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://e.top4top.io/p_3255n6xwo1.png" alt="WE Line">
-        <h4>رقم: 01512345678</h4>
-        <p class="price">السعر: 60 جنيه</p>
-        <button onclick="showPopup('01012345678', '50 جنيه')">شراء</button>
-      </div>
-       </div>
-        </div>
+    <div class="grid"></div>
+  </div>
+
   <!-- النافذة المنبثقة -->
   <div class="overlay" id="overlay" onclick="hidePopup()"></div>
   <div class="popup" id="popup">
     <h3>فاتورة الشراء</h3>
     <p id="line-number"></p>
     <p id="line-price"></p>
-    <button class="pay-btn" onclick="window.location.href='index000.html'">دفع</button>
+    <button class="pay-btn" onclick="window.location.href='index7.html'">دفع</button>
     <button class="close-btn" onclick="hidePopup()">إغلاق</button>
   </div>
 
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const products = JSON.parse(localStorage.getItem('products')) || [];
+      const categories = {
+        vodafone: document.querySelector('.section.vodafone .grid'),
+        orange: document.querySelector('.section.orange .grid'),
+        etisalat: document.querySelector('.section.etisalat .grid'),
+        we: document.querySelector('.section.we .grid')
+      };
+
+      products.forEach(product => {
+        const card = `
+          <div class="card">
+            <img src="${product.image}" alt="${product.category}">
+            <h4>رقم: ${product.number}</h4>
+            <p class="price">السعر: ${product.price}</p>
+            <button onclick="showPopup('${product.number}', '${product.price}')">شراء</button>
+          </div>
+        `;
+        categories[product.category].innerHTML += card;
+      });
+    });
+
     function showPopup(number, price) {
       document.getElementById('line-number').textContent = `الرقم: ${number}`;
       document.getElementById('line-price').textContent = `السعر: ${price}`;
@@ -299,29 +276,6 @@
       document.getElementById('popup').style.display = 'none';
       document.getElementById('overlay').style.display = 'none';
     }
-    document.addEventListener('DOMContentLoaded', () => {
-  const products = JSON.parse(localStorage.getItem('products')) || [];
-  const categories = {
-    vodafone: document.querySelector('.section.vodafone .grid'),
-    orange: document.querySelector('.section.orange .grid'),
-    etisalat: document.querySelector('.section.etisalat .grid'),
-    we: document.querySelector('.section.we .grid')
-  };
-
-  products.forEach(product => {
-  const card = `
-    <div class="card">
-      <img src="${product.image}" alt="${product.category}">
-      <h4>رقم: ${product.number}</h4>
-      <p class="price">السعر: ${product.price}</p>
-      <button onclick="showPopup('${product.number}', '${product.price}')">شراء</button>
-    </div>
-  `;
-  categories[product.category].innerHTML += card;
-});
-
-
   </script>
-</body>
 </body>
 </html>
